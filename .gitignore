@@ -15,4 +15,4 @@
 # vendor/
 
 .idea/
-/ peer_review/peer_review.go
+/peer_review/peer_review.go
