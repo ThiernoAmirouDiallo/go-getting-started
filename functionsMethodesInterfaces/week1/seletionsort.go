@@ -10,7 +10,7 @@ func SelectionSort(ints []int) {
 		}
 
 		if i != maxIdx {
-			Swap(ints, i, maxIdx)
+			SwapValuesAt(ints, i, maxIdx)
 		}
 	}
 }

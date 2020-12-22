@@ -15,15 +15,19 @@ func main() {
 
 func BubbleSort(ints []int) {
 	for i := len(ints) - 1; i > 0; i-- {
-		for j := 0; j <= i; j++ {
-			if ints[j] > ints[i] {
-				Swap(ints, i, j)
+		for j := 0; j < i; j++ {
+			if ints[j] > ints[j+1] {
+				Swap(ints, j)
 			}
 		}
 	}
 }
 
-func Swap(ints []int, i int, j int) {
+func Swap(ints []int, i int) {
+	SwapValuesAt(ints, i, i+1)
+}
+
+func SwapValuesAt(ints []int, i int, j int) {
 	if i == j {
 		return
 	}
