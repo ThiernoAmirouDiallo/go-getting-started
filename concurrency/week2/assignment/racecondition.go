@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"sync"
 )
 
 var counter int
@@ -17,14 +17,20 @@ not increment the actual value.
 */
 func main() {
 
-	go increment(&counter, 1_000_000)
-	go increment(&counter, 1_000_000)
+	var wg sync.WaitGroup
 
-	time.Sleep(time.Second)
+	wg.Add(2)
+
+	go increment(&counter, 1_000_000, &wg)
+	go increment(&counter, 1_000_000, &wg)
+
+	wg.Wait()
 	fmt.Printf("counter = %v\n", counter)
 }
 
-func increment(counter *int, times int) {
+func increment(counter *int, times int, wg *sync.WaitGroup) {
+	defer wg.Done()
+
 	for i := 0; i < times; i++ {
 		*counter++
 	}
