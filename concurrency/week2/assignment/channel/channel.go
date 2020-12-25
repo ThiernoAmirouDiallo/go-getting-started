@@ -41,7 +41,7 @@ func PartitionAndSort(ints []int, partNumber int) []int {
 		var partition = make([]int, endIdx-startIdx)
 		copy(partition, ints[startIdx:endIdx])
 
-		go sort(&c, partition, partNumber)
+		go sort(&c, partition, partitionNum)
 	}
 
 	sortedPartitions := make([][]int, partitionNum)
