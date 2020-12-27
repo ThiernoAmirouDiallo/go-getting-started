@@ -28,14 +28,15 @@ func (philosopher *Philosopher) eat(c *chan EatRequest, wg *sync.WaitGroup) {
 		doneChan := <-philosopher.replyChannel
 		fmt.Printf("Philosopher-%v - Eating round %v\n", philosopher.id+1, i+1)
 
-		philosopher.leftCS.Lock()
+		/*philosopher.leftCS.Lock()
 		philosopher.rightCS.Lock()
 
 		philosopher.leftCS.Unlock()
 		philosopher.rightCS.Unlock()
+		*/
 
-		*doneChan <- philosopher.id
 		fmt.Printf("Philosopher-%v - Done round %v\n", philosopher.id+1, i+1)
+		*doneChan <- philosopher.id
 	}
 
 	wg.Done()
