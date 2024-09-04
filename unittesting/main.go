@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
+	"github.com/ThiernoAmirouDiallo/go-getting-started/debounce"
 )
 
 var v int = 3
 
 func main() {
-	fmt.Println("Go unit testing")
+	debounce.Example()
+}
+
+func main2() {
+	fmt.Println("unit testing")
 	fmt.Println(addTwo(3))
 
 	fmt.Println("Pointer demo")
