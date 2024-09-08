@@ -1,4 +1,5 @@
 # Notes
+### Go packages can be found at: https://pkg.go.dev/
 
 ## Concurency
 
